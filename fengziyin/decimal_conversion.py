@@ -2,62 +2,33 @@
 import sys
 def tenton():
     n=int(input('输入要转换的数.'))
-    m=input('转换的进制.')
-    m=int(m)
+    m=int(input('转换的进制.'))
     f=''
     i=0
     if m==16:
         while n>0:
             i=n%m
-            if i==10:
-                i='A'
-            elif i==11:
-                i='B'
-            elif i==12:
-                i='C'
-            elif i==13:
-                i='D'
-            elif i==14:
-                i='E'
-            elif i==15:
-                i='F'
+            if i>=10:
+                i = "ABCDEF"[i%10]
             n=n//m
-            f=f+str(i)
-        l=len(f)
-        v=''
-        for x in range(l):
-            v=v+f[l-1]
-            l-=1
-        print(v)
+            f=str(i)+f
+        print(f)
     if m!=16:
         while n>0:
             i=n%m
             n=n//m
-            f=f+str(i)
-        l=len(f)
-        v=''
-        for x in range(l):
-            v=v+f[l-1]
-            l-=1
-        print(v)
+            f=str(i)+f
+        print(f)
 
 
 
 def ntoten():
     n=input('输入要转换的数.')
-    m=input('输入的数的进制.')
-    m=int(m)
+    m=int(input('输入的数的进制.'))
     l=len(n)
     i=0
     v=l-1
     p=0
-    for x in range(l):
-        if int(n[l-1])>=m:
-            print('输入的数字不能大于或等于进制数!')
-            sys.exit()
-        else:
-            l-=1
-    l=len(n)
     if m==16:
         for x in range(l):
             hex_mapping = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
